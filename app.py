@@ -21,7 +21,7 @@ githublink = 'https://github.com/farkasdilemma/304-titanic-dropdown/blob/main/ap
 df = pd.read_csv("https://raw.git.generalassemb.ly/intuit-ds-15/05-cleaning-combining-data/master/data/NBA_players_2015.csv?token=AAAKJEDTOCI6NUD6ZELUHK3CIPLCE")
 #df['Female']=df['Sex'].map({'male':0, 'female':1})
 #df['Cabin Class'] = df['Pclass'].map({1:'first', 2: 'second', 3:'third'})
-variables_list=[df['bref_team_id'].unique()]
+variables_list=list(df['bref_team_id'].unique())
 
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
