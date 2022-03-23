@@ -51,25 +51,25 @@ app.layout = html.Div([
 def display_value(team_var):
     
     top_players = nba.sort_values(['bref_team_id','pts'],ascending = False).groupby('bref_team_id')[['player','bref_team_id','PER','VORP','WS']].head(3)
+    x_names = list(top_players[top_players['bref_team_id']=='WAS']['player'])
 
-
-    results=pd.DataFrame(top_players)
+    #results=pd.DataFrame(top_players)
     # Create a grouped bar chart
     mydata1 = go.Bar(
-        x=results['PER'].index,
-        y=results[results['bref_team_id']==team_var]['PER'],
+        x=x_names,
+        y=top_players[top_players['bref_team_id']==team_var]['PER'],
         name='PER',
         marker=dict(color=color1)
     )
     mydata2 = go.Bar(
-        x=results.loc['WS'].index,
-        y=results[results['bref_team_id']==team_var]['WS'],
+        x=x_names,
+        y=top_players[top_players['bref_team_id']==team_var]['WS'],
         name='Win Shares',
         marker=dict(color=color2)
     )
     mydata3 = go.Bar(
-        x=results.loc['VORP'].index,
-        y=results[results['bref_team_id']==team_var]['VORP'],
+        x=x_names,
+        y=top_players[top_players['bref_team_id']==team_var]['VORP'],
         name='Value Over Replacement Player',
         marker=dict(color=color3)
     )
