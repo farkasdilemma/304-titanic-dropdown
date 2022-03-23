@@ -47,7 +47,7 @@ app.layout = html.Div([
 
 ######### Interactive callbacks go here #########
 @app.callback(Output('display-value', 'figure'),
-              [Input('dropdown', 'team_var')])
+              [Input('dropdown', 'value')])
 def display_value(team_var):
     
     top_players = nba.sort_values(['bref_team_id','pts'],ascending = False).groupby('bref_team_id')[['player','bref_team_id','PER','VORP','WS']].head(3)
