@@ -50,7 +50,7 @@ app.layout = html.Div([
               [Input('dropdown', 'value')])
 def display_value(team_var):
     
-    top_players = nba.sort_values(['bref_team_id','pts'],ascending = False).groupby('bref_team_id')[['player','bref_team_id','PER','VORP','WS']].head(3)
+    top_players = df.sort_values(['bref_team_id','pts'],ascending = False).groupby('bref_team_id')[['player','bref_team_id','PER','VORP','WS']].head(3)
     x_names = list(top_players[top_players['bref_team_id']==team_var]['player'])
 
     #results=pd.DataFrame(top_players)
