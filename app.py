@@ -75,7 +75,7 @@ def display_value(team_var):
     )
 
     mylayout = go.Layout(
-        title='Grouped bar chart',
+        title='Team Scoring leader - Advanced Stats',
         xaxis = dict(title = 'Players'), # x-axis label
         yaxis = dict(title = str(team_var)), # y-axis label
 
